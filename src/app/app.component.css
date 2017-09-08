@@ -1,0 +1,63 @@
+#novaTarefa,#editarTarefa{
+    width: 50%
+}
+.conteudoCentralizado{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.center{
+    text-align: center;
+}
+.pullRight{
+    float:right
+}
+
+li{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    list-style: none;
+}
+
+.btn{
+    cursor:pointer;
+}
+
+.mt-10{
+    margin-top:10px;
+}
+
+.mt-20{
+    margin-top: 20px;
+}
+
+.mt-50{
+    margin-top: 50px;
+}
+
+.tarefas label{
+    cursor:pointer;
+}
+
+.tarefas label:hover{
+    opacity: 0.7;
+}
+
+.tarefas{
+    /* min-height: 500px; */
+    max-height: 500px;
+    overflow: auto;
+}
+
+li:nth-child(odd) { 
+    background:gray;    
+    color:white;
+}
+
+.direitos{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}

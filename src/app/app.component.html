@@ -1,0 +1,45 @@
+<div class="center">
+  <h1>
+    Tarefas APP
+  </h1>
+</div>
+<div class="conteudoCentralizado">
+  <div class="mt-50">
+    <div [hidden]="editando">
+        <label>Nova tarefa :</label>
+        <input  id="novaTarefa" #novaTarefa [(ngModel)]="inputTarefa" type="text" value="">
+        <button  type="button" class="btn btn-success" (click)="adicionarTarefa(novaTarefa.value)">Adicionar</button>
+        <div [hidden]="!msgErro" class="alert alert-danger mt-10" role="alert">
+          adicione uma descrição para a tarefa
+        </div>
+    </div>
+    
+    <div [hidden]="!editando">
+        <label>Editar tarefa :</label>
+        <input   id="editarTarefa" #novoValor type="text" [value]="tarefa?tarefa.valor:''">
+        <button  type="button" class="btn btn-primary" (click)="atualizarTarefa(tarefa.$key,novoValor.value)">Atualizar</button>
+        <button  type="button" class="btn btn-secondary" (click)="cancelarEdicao()">Cancelar</button>
+    </div>
+    
+  </div>
+  <h4 class="mt-10">Lista de tarefas</h4>
+  <div class="tarefas mt-20">
+    <ul>
+      <li class="text"  *ngFor="let tarefa of tarefas | async">
+        <label class="col-md-9" (click)="editarTarefa(tarefa)">  {{tarefa.valor}}</label>
+        <button class="btn btn-danger pullRight" (click)="excluirTarefa(tarefa.$key)">Remover</button>
+        <button class="btn btn-warning pullRight" (click)="editarTarefa(tarefa)" style="margin-right:10px;">Editar</button>
+      </li>
+      <p *ngIf="(tarefas | async)?.length==0">Nenhuma tarefa adicionada</p>
+    </ul>
+  </div>  
+  <span *ngIf="(tarefas | async)?.length==1" class="pullRight">{{(tarefas | async)?.length}} tarefa adicionada</span>
+  <span *ngIf="(tarefas | async)?.length>1" class="pullRight">{{(tarefas | async)?.length}} tarefas adicionadas</span>
+</div>
+<div class="center direitos">
+  <h6 class="">Desenvolvido por: Guilherme Guimarães Silva</h6>
+</div>
+
+
+
+
